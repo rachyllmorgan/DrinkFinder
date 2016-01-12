@@ -1,0 +1,68 @@
+﻿@model IEnumerable<Drink_Finder.Models.Recipe>
+
+@{
+    ViewBag.Title = "All Recipes";
+}
+
+<p>
+    @using (Html.BeginForm("RecipeList", "Recipes", FormMethod.Get))
+    {
+        <p>Search By Name: @Html.TextBox("NameString")
+        <input type="submit" value="Filter" />
+        </p>
+    }
+
+    @using (Html.BeginForm("RecipeList", "Recipes", FormMethod.Get))
+    {
+        <p>
+            Search by Alcohol: @Html.TextBox("AlcoholSearch")
+            <input type="submit" value="Filter" />
+        </p>
+    }
+
+    @using (Html.BeginForm("RecipeList", "Recipes", FormMethod.Get))
+    {
+        <p>
+            Shooter or Cocktail: @Html.TextBox("GlassSearch")
+            <input type="submit" value="Filter" />
+        </p>
+    }
+    <p>
+        @Html.ActionLink("Clear Search ", "RecipeList") |
+        @Html.ActionLink(" Create a new recipe", "Create")
+    </p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Name)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Alcohol)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Glass)
+        </th>
+        <th></th>
+    </tr>
+
+    @foreach (var item in Model)
+    {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.Name)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Alcohol)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Glass)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { id = item.ID }) |
+                @Html.ActionLink("Details", "Details", new { id = item.ID }) |
+                @Html.ActionLink("Delete", "Delete", new { id = item.ID })
+            </td>
+        </tr>
+    }
+
+</table>
