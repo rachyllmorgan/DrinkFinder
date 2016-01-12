@@ -4,34 +4,40 @@
     ViewBag.Title = "All Recipes";
 }
 
-<p>
-    @using (Html.BeginForm("RecipeList", "Recipes", FormMethod.Get))
-    {
-        <p>Search By Name: @Html.TextBox("NameString")
-        <input type="submit" value="Filter" />
-        </p>
-    }
+<h2>Recipes</h2>
 
-    @using (Html.BeginForm("RecipeList", "Recipes", FormMethod.Get))
-    {
-        <p>
-            Search by Alcohol: @Html.TextBox("AlcoholSearch")
-            <input type="submit" value="Filter" />
-        </p>
-    }
+<form class="form-inline">
+    <div class="form-group">
+        @using (Html.BeginForm("RecipeList", "Recipes", FormMethod.Get))
+        {
+            <p>
+                Search By Name: @Html.TextBox("NameString", null, new { @class = "form-control" })
+                <input type="submit" value="Filter" class="btn btn-default btn-sm" />
+            </p>
+        }
 
-    @using (Html.BeginForm("RecipeList", "Recipes", FormMethod.Get))
-    {
-        <p>
-            Shooter or Cocktail: @Html.TextBox("GlassSearch")
-            <input type="submit" value="Filter" />
-        </p>
-    }
+        @using (Html.BeginForm("RecipeList", "Recipes", FormMethod.Get))
+        {
+            <p>
+                Search by Alcohol: @Html.TextBox("AlcoholSearch", null, new { @class = "form-control" })
+                <input type="submit" value="Filter" class="btn btn-default btn-sm" />
+            </p>
+        }
+
+        @using (Html.BeginForm("RecipeList", "Recipes", FormMethod.Get))
+        {
+            <p>
+                Shooter or Cocktail: @Html.TextBox("GlassSearch", null, new { @class = "form-control" })
+                <input type="submit" value="Filter" class="btn btn-default btn-sm" />
+            </p>
+        }
+    </div>
+</form>
     <p>
         @Html.ActionLink("Clear Search ", "RecipeList") |
         @Html.ActionLink(" Create a new recipe", "Create")
     </p>
-<table class="table">
+<table class="table table-hover">
     <tr>
         <th>
             @Html.DisplayNameFor(model => model.Name)

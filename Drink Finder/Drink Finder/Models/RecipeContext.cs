@@ -9,5 +9,6 @@ namespace Drink_Finder.Models
     public class RecipeContext : DbContext
     {
         public DbSet<Recipe> Recipes { get; set; }
+        public DbSet<BarTerms> BarTerms { get; set; }
     }
 }
