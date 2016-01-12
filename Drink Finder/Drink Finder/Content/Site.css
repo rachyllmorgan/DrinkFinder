@@ -26,3 +26,16 @@ textarea {
 .home_banner img {
     max-width: 95%;
 }
+
+.home_banner h1 {
+    position: absolute;
+    top: 200px;
+    left: 25%;
+    width: 100%;
+    color: white;
+    font-size: 5em;
+}
+
+.center li {
+    text-align: center;
+}
